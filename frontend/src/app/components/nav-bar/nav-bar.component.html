@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-sm bg-white">
+
+    <a class="navbar-brand mx-2" routerLink='/' routerLinkActive='active' [routerLinkActiveOptions]='{exact: true}'>
+        <img src="assets/logo.jpg" alt="logo"><b>Inprocode</b>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav"> 
+        <ul class="navbar-nav ms-auto mx-2 my-2"> 
+            <li class="nav-item px-3">
+                <a class="nav-link" routerLink='mapa' routerLinkActive='active' [routerLinkActiveOptions]='{exact: true}'>Mapa</a>
+            </li>
+            <li class="nav-item px-3">
+                <a class="nav-link" routerLink='grafic' routerLinkActive='active' [routerLinkActiveOptions]='{exact: true}'>Grafic</a>
+            </li>
+            <li class="nav-item px-3">
+                <a class="nav-link" routerLink='calendar' routerLinkActive='active' [routerLinkActiveOptions]='{exact: true}'>Calendar</a>
+            </li>
+        </ul>
+
+    </div>
+
+</nav>
+
+
+
