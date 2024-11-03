@@ -52,7 +52,7 @@ npm install
 
 ## ⚙️ Development server
 
-**✔️ Backend (JWT Authentication):** Navigate to the backend directory and start MySQL Server:
+**✔️ Backend:** Navigate to the backend directory and start MySQL Server:
 
 ```bash
 npm run dev

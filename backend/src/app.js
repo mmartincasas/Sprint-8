@@ -1,12 +1,12 @@
-const express = require('express');
-const config = require('./config');
+const express = require('express')
+const config = require('./config')
 
-const clientes = require('./models/clientes/rutas');
+const costumers = require('./models/costumers/routes')
 
-const app = express();
+const app = express()
 
-app.set('port', config.app.port);
+app.set('port', config.app.port)
 
-app.use('/api/clientes', clientes);
+app.use('/api/costumers', costumers)
 
-module.exports = app;
+module.exports = app
