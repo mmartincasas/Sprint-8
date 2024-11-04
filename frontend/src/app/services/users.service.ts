@@ -16,6 +16,10 @@ export class UsersService {
   getAll(): Observable<ApiResponse> {
     return this.http.get<ApiResponse>(this.usersUrl);
   }
+
+  createUser(user: User): Observable<User> {
+    return this.http.post<User>(`${this.usersUrl}`, user);
+  }
    
 
 }

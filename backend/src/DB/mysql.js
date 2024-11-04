@@ -42,21 +42,16 @@ function all (table) {
   })
 }
 
-function one(table, id){
-
-}
-
-function add(table, data) {
-
-}
-
-function remove(table, id) {
-
+function add (table, data) {
+  return new Promise((resolve, reject) => {
+    connection.query(`INSERT INTO ${table} SET ?`, data, (error, result) => {
+      if (error) return reject(error)
+      resolve(result)
+    })
+  })
 }
 
 module.exports = {
   all,
-  one,
-  add,
-  remove
+  add
 }

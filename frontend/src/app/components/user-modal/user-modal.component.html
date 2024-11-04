@@ -1,0 +1,79 @@
+
+<button type="button" class="btn btn-primary" data-toggle="modal" (click)="openModal('userModal')">Open modal for mdo</button>
+
+
+<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="SubmitBudgetModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+
+            @if(user === null){
+                <div class="modal-header justify-content-center">
+                    <h4 class="modal-title" id="SubmitBudgetModalTitle">New User</h4>
+                </div>
+                <div class="modal-body px-5">
+                    
+                    <form [formGroup]="formUser" (ngSubmit)="saveNewUser()">
+                        <div class="form-group">
+                            <label for="first">First Name:</label>
+                            <input id="first" formControlName="first" class="form-control" />
+                            @if(formUser.get('first')?.invalid && (formUser.get('first')?.touched || formUser.get('first')?.dirty)){
+
+                                <div class="row text-end m-1">
+                                    <small class="text-danger">First Name is required.</small>
+                                </div>
+                            }
+                          </div>
+                          <div class="form-group">
+                            <label for="last">Last Name:</label>
+                            <input id="last" formControlName="last" class="form-control" />
+                            @if(formUser.get('last')?.invalid && (formUser.get('last')?.touched || formUser.get('last')?.dirty)){
+
+                                <div class="row text-end m-1">
+                                    <small class="text-danger">Last Name is required.</small>
+                                </div>
+                            }
+                          </div>
+                          <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input id="email" formControlName="email" class="form-control" />
+                            @if(formUser.get('email')?.invalid && (formUser.get('email')?.touched || formUser.get('email')?.dirty)){
+                                <div class="row text-end m-1">
+                                    <small class="text-danger">Email is required.</small>
+                                </div>
+                            }
+                          </div>
+                          <div class="form-group">
+                            <label for="phone">Phone:</label>
+                            <input id="phone" formControlName="phone" class="form-control" />
+                          </div>
+                          <div class="form-group">
+                            <label for="location">Location:</label>
+                            <input id="location" formControlName="location" class="form-control" />
+                          </div>
+                          <div class="form-group">
+                            <label for="hobby">Hobby:</label>
+                            <input id="hobby" formControlName="hobby" class="form-control" />
+                          </div>
+                          <button type="submit" class="btn btn-primary my-3">Save</button>
+                          <button class="btn btn-secondary my-3 mx-2" (click)="closeModal()">Cancel</button>
+
+                    </form>
+                    
+                </div>
+            }@else{
+                <div class="modal-header justify-content-center">
+                    <h4 class="modal-title" id="SubmitBudgetModalTitle">Edit User</h4>
+                </div>
+                <div class="modal-body text-center">
+                    El seu pressupost s'ha registrat correctament.
+                </div>
+            }
+
+
+        </div>
+    </div>
+</div>
+
+
+  

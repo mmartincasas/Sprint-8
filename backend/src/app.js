@@ -14,6 +14,12 @@ app.use(cors(
     // credentials: true
   }))
 
+// Middleware para parsear JSON
+app.use(express.json())
+
+// Middleware para procesar datos en formato x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }))
+
 app.use('/api/users', users)
 
 module.exports = app
