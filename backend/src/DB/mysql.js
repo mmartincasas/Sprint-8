@@ -51,7 +51,18 @@ function add (table, data) {
   })
 }
 
+function removeUser (table, id) {
+  return new Promise((resolve, reject) => {
+    const query = `DELETE FROM ${table} WHERE id = ?`
+    connection.query(query, [id], (error, result) => {
+      if (error) return reject(error)
+      resolve(result)
+    })
+  })
+}
+
 module.exports = {
   all,
-  add
+  add,
+  removeUser
 }

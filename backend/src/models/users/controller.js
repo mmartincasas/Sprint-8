@@ -22,7 +22,12 @@ function add (user) {
   return db.add(TABLE, user)
 }
 
+function removeUser (id) {
+  return db.removeUser(TABLE, id)
+}
+
 module.exports = {
   all,
-  add
+  add,
+  removeUser
 }
