@@ -58,6 +58,6 @@ npm install
 npm run dev
 ```
 
-**✔️ Frontend:** Navigate to the frontend directory and run `ng serve` for a dev server. Then, open `http://localhost:4200/` in your browser. The application will automatically reload whenever you modify any of the source files.
+**✔️ Frontend:** Navigate to the frontend directory and run `ng serve` for a dev server. Then, open `http://localhost:4200/` in your browser (it's necessary this port to run correctly). The application will automatically reload whenever you modify any of the source files.
 
 

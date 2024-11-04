@@ -1,6 +1,6 @@
 const db = require('../../DB/mysql')
 
-const TABLE = 'costumers'
+const TABLE = 'users'
 
 function all () {
   return db.all(TABLE)

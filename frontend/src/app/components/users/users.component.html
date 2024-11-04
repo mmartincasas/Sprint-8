@@ -1,0 +1,55 @@
+<div class="container">
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Location</th>
+            <th scope="col">Hobby</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+
+
+        <tbody>
+        @if(arrUsers().length>0){
+            @for(user of arrUsers(); track user.id){
+                <tr>
+                    <th scope="row">{{user.id}}</th>
+                    <td>{{user.first}}</td>
+                    <td>{{user.last}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>{{user.location}}</td>
+                    <td>{{user.hobby}}</td>
+                    <td>
+                        <button class="btn btn-warning">Edit</button>
+                        <button class="btn btn-danger">Del</button>
+                    </td>
+                </tr>
+            }
+        }
+        </tbody>
+      </table>
+
+      <div class="row">
+        <div class="col p-2">
+            @if(arrUsers().length==0){
+                No users found.
+              }
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+            <button class="btn btn-primary">Create New User</button>
+        </div>
+      </div>
+
+      
+
+</div>
