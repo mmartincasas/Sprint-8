@@ -1,5 +1,11 @@
 <div class="container">
 
+  <div class="row">
+    <div class="col d-flex justify-content-end">
+      <button class="btn btn-primary" (click)="createUser()">Create New User</button>
+    </div>
+  </div>
+
     <div class="row table-responsive p-3">
 
         <table class="table">
@@ -29,7 +35,7 @@
                         <td>{{user.location}}</td>
                         <td>{{user.hobby}}</td>
                         <td>
-                            <button class="btn btn-warning">Edit</button>
+                            <button class="btn btn-warning" (click)="updateUser(user)">Edit</button>
                             <button class="btn btn-danger" (click)="deleteUser(user.id)">Del</button>
                         </td>
                     </tr>
@@ -49,12 +55,13 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col">
-            <button class="btn btn-primary" (click)="openModal()">Create New User</button>
-        </div>
-      </div>
 
 </div>
 
-<app-user-modal></app-user-modal>
+<app-user-modal
+    #userModalComponent
+    (userUpdated)="onUserUpdated($event)">
+</app-user-modal>
+
+
+<br>

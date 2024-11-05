@@ -18,10 +18,22 @@ export class UsersComponent {
   @ViewChild(UserModalComponent) userModalComponent!: UserModalComponent;
 
   ngOnInit() {
+    this.loadUsers();
+  }
+
+  loadUsers(){
     this.usersService.getAll().subscribe((data: ApiResponse) => {
       this.arrUsers.set(data.body); 
       console.log(this.arrUsers());
     });
+  }
+
+  createUser() {
+    this.userModalComponent.openModal(null);
+  }
+
+  updateUser(user: User){
+    this.userModalComponent.openModal(user);
   }
 
   deleteUser(id: number){
@@ -40,8 +52,8 @@ export class UsersComponent {
     }
   }
 
-  openModal() {
-    this.userModalComponent.openModal('userModal');
+  onUserUpdated(user: User) {
+    this.loadUsers(); // Vuelve a cargar los usuarios
   }
 
 

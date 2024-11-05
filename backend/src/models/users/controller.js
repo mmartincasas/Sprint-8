@@ -22,6 +22,15 @@ function add (user) {
   return db.add(TABLE, user)
 }
 
+function updateUser (userId, user) {
+  if (Object.keys(user).length === 0) {
+    // eslint-disable-next-line prefer-promise-reject-errors
+    return Promise.reject({ status: 400, message: 'At least one field is required to update.' })
+  }
+
+  return db.updateUser(TABLE, user, userId)
+}
+
 function removeUser (id) {
   return db.removeUser(TABLE, id)
 }
@@ -29,5 +38,6 @@ function removeUser (id) {
 module.exports = {
   all,
   add,
+  updateUser,
   removeUser
 }

@@ -23,6 +23,19 @@ router.post('/', function (req, res) {
     })
 })
 
+router.put('/:id', function (req, res) {
+  const userId = req.params.id
+  const userData = req.body
+
+  controller.updateUser(userId, userData)
+    .then((result) => {
+      response.success(req, res, { message: 'User updated' }, 200)
+    })
+    .catch((error) => {
+      response.error(req, res, error.message, 400)
+    })
+})
+
 router.delete('/:id', function (req, res) {
   const userId = req.params.id
   controller.removeUser(userId)

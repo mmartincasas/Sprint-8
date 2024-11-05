@@ -2,14 +2,14 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
 
-
-            @if(user === null){
                 <div class="modal-header justify-content-center">
-                    <h4 class="modal-title" id="SubmitBudgetModalTitle">New User</h4>
+                    <h4 class="modal-title" id="SubmitBudgetModalTitle">
+                        {{ isUpdateMode ? 'Edit User' : 'New User' }}
+                    </h4>
                 </div>
                 <div class="modal-body px-5">
                     
-                    <form [formGroup]="formUser" (ngSubmit)="saveNewUser()">
+                    <form [formGroup]="formUser" (ngSubmit)="saveUser()">
                         <div class="form-group">
                             <label for="first">First Name:</label>
                             <input id="first" formControlName="first" class="form-control" />
@@ -53,18 +53,8 @@
                           </div>
                           <button type="submit" class="btn btn-primary my-3">Save</button>
                           <button class="btn btn-secondary my-3 mx-2" (click)="closeModal()">Cancel</button>
-
                     </form>
-                    
                 </div>
-            }@else{
-                <div class="modal-header justify-content-center">
-                    <h4 class="modal-title" id="SubmitBudgetModalTitle">Edit User</h4>
-                </div>
-                <div class="modal-body text-center">
-                    El seu pressupost s'ha registrat correctament.
-                </div>
-            }
 
 
         </div>
