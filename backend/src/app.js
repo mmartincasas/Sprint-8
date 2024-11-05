@@ -2,6 +2,7 @@ const express = require('express')
 const config = require('./config')
 const cors = require('cors')
 const users = require('./models/users/routes')
+const charts = require('./models/charts/routes')
 
 const app = express()
 
@@ -14,12 +15,13 @@ app.use(cors(
     // credentials: true
   }))
 
-// Middleware para parsear JSON
+// Middleware to parse JSON
 app.use(express.json())
 
-// Middleware para procesar datos en formato x-www-form-urlencoded
+// Middleware to process data in x-www-form-urlencoded format
 app.use(express.urlencoded({ extended: true }))
 
 app.use('/api/users', users)
+app.use('/api/visits', charts)
 
 module.exports = app

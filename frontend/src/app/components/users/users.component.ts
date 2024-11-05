@@ -1,4 +1,4 @@
-import { Component, inject, signal, ViewChild } from '@angular/core';
+import { Component, inject, OnInit, signal, ViewChild } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { User, ApiResponse } from '../../interfaces/user';
 import { UserModalComponent } from "../user-modal/user-modal.component";
@@ -10,7 +10,7 @@ import { UserModalComponent } from "../user-modal/user-modal.component";
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss'
 })
-export class UsersComponent {
+export class UsersComponent implements OnInit {
 
   arrUsers = signal<User[]>([]);
   usersService = inject(UsersService);
