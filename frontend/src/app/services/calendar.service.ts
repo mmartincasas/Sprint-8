@@ -1,14 +1,14 @@
-import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { ApiResponse } from '../interfaces/events';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ApiResponse } from '../interfaces/chart';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ChartService {
+export class CalendarService {
 
-  private chartUrl = "http://localhost:3000/api/visits"
+  private chartUrl = "http://localhost:3000/api/events"
 
   http = inject(HttpClient)
 
