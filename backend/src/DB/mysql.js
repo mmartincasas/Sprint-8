@@ -72,19 +72,9 @@ function removeUser (table, id) {
   })
 }
 
-function getVisits () {
-  return new Promise((resolve, reject) => {
-    connection.query('SELECT * FROM num_visits', (error, result) => {
-      if (error) return reject(error)
-      resolve(result)
-    })
-  })
-}
-
 module.exports = {
   all,
   add,
   updateUser,
-  removeUser,
-  getVisits
+  removeUser
 }

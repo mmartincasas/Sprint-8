@@ -3,6 +3,7 @@ const config = require('./config')
 const cors = require('cors')
 const users = require('./models/users/routes')
 const charts = require('./models/charts/routes')
+const map = require('./models/map/routes')
 
 const app = express()
 
@@ -23,5 +24,6 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use('/api/users', users)
 app.use('/api/visits', charts)
+app.use('/api/map', map)
 
 module.exports = app

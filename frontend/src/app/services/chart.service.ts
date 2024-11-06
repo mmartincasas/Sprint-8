@@ -8,11 +8,11 @@ import { ApiResponse } from '../interfaces/chart';
 })
 export class ChartService {
 
-  private usersUrl = "http://localhost:3000/api/visits"
+  private chartUrl = "http://localhost:3000/api/visits"
 
   http = inject(HttpClient)
 
-  getAll(): Observable<ApiResponse> {
-    return this.http.get<ApiResponse>(this.usersUrl);
+  getAll(): (Observable<ApiResponse>) {
+    return this.http.get<ApiResponse>(this.chartUrl);
   }
 }

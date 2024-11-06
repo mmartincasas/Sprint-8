@@ -1,1 +1,20 @@
-<p>mapa works!</p>
+<div class="container">
+
+    <div class="row mt-3 py-3">
+        <div class="col-md-4 d-flex align-items-center ms-auto">
+          <label for="categoryFilter" class="form-label">Filter by category:</label>
+          <select id="categoryFilter" class="form-select" [(ngModel)]="selectedCategory" (change)="filterMarkers()">
+            <option value="">All locations</option>
+            @for(category of categories; track category){
+                <option [value]="category">{{ category }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+    <div class="row">
+        <div class="col">
+            <div id="map"></div>
+        </div>
+    </div>
+</div>
