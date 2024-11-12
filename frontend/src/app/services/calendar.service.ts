@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { ApiResponse } from '../interfaces/events';
+import { ApiResponse, EventCalendar } from '../interfaces/eventCalendar';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -15,4 +15,9 @@ export class CalendarService {
   getAll(): Observable<ApiResponse> {
     return this.http.get<ApiResponse>(this.chartUrl);
   }
+
+  createEvent(NewEvent: EventCalendar): Observable<EventCalendar> {
+    return this.http.post<EventCalendar>(`${this.chartUrl}`, NewEvent);
+  }
+  
 }

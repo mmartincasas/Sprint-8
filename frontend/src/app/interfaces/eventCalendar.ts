@@ -1,4 +1,4 @@
-export interface Events {
+export interface EventCalendar {
     id: number,
     title: string,
     description: string,
@@ -11,5 +11,5 @@ export interface Events {
 export interface ApiResponse {
     error: boolean;
     status: number;
-    body: Events[]
+    body: EventCalendar[]
 }

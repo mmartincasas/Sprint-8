@@ -1,0 +1,37 @@
+/* Estilo para las cards cuadradas pequeñas tipo icono */
+.square-card {
+    width: 100%;  /* Asegura que la card ocupe toda la columna disponible */
+    padding-top: 100%; /* Hace que la altura sea igual al ancho (100%) creando un cuadrado */
+    position: relative; /* Para posicionar la imagen dentro de la card */
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Para recortar las imágenes si es necesario */
+  }
+  
+  .square-card .card-img-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho de la card */
+    height: 100%; /* Asegura que la imagen ocupe toda la altura de la card */
+    object-fit: cover; /* Hace que la imagen cubra la totalidad del área sin deformarse */
+  }
+  
+  .card-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro para el título */
+    color: white; /* Título en blanco para mayor visibilidad */
+    text-align: center; /* Centrar el texto */
+    font-size: 12px; /* Texto más pequeño para que encaje bien */
+  }
+  
+  .card {
+    height: 120px; /* Ajusta la altura de las cards */
+  }
+  
+  .card-img-top {
+    height: 70%; /* Asegura que la imagen ocupe un 70% de la card */
+  }
