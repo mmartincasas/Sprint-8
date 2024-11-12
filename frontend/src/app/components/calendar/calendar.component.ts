@@ -36,8 +36,9 @@ export class CalendarComponent implements OnInit {
     headerToolbar: {
       start: 'title',           
       center: '',               
-      end: 'today prev,next dayGridMonth'
-    }
+      end: 'today prev,next'
+    },
+    contentHeight: 'auto'
   };
 
   ngOnInit(): void {
