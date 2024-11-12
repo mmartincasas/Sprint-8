@@ -8,5 +8,7 @@
 </div>
 
 
-<app-event-modal #eventModalComponent></app-event-modal>
+<app-event-modal 
+#eventModalComponent
+(eventUpdated)="onEventUpdated($event)"></app-event-modal>
 

@@ -51,7 +51,7 @@ function add (table, data) {
   })
 }
 
-function updateUser (table, data, id) {
+function update (table, data, id) {
   return new Promise((resolve, reject) => {
     connection.query(`UPDATE ${table} SET ? WHERE id = ?`,
       [data, id],
@@ -62,7 +62,7 @@ function updateUser (table, data, id) {
   })
 }
 
-function removeUser (table, id) {
+function remove (table, id) {
   return new Promise((resolve, reject) => {
     const query = `DELETE FROM ${table} WHERE id = ?`
     connection.query(query, [id], (error, result) => {
@@ -75,6 +75,6 @@ function removeUser (table, id) {
 module.exports = {
   all,
   add,
-  updateUser,
-  removeUser
+  update,
+  remove
 }

@@ -5,7 +5,7 @@ import { ApiResponse, EventCalendar } from '../../interfaces/eventCalendar';
 import { EventModalComponent } from '../event-modal/event-modal.component';
 
 import { FullCalendarModule } from '@fullcalendar/angular';
-import { CalendarOptions } from '@fullcalendar/core';
+import { CalendarOptions, EventClickArg } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin, { DateClickArg } from '@fullcalendar/interaction';
 import { EventInput } from '@fullcalendar/core';
@@ -32,10 +32,11 @@ export class CalendarComponent implements OnInit {
     plugins: [dayGridPlugin, interactionPlugin],
     events: this.events, 
     dateClick: (arg) => this.handleDateClick(arg),
+    eventClick: (arg) => this.handleEventClick(arg),
     headerToolbar: {
-      start: 'title',           // Título en el lado izquierdo
-      center: '',               // Espacio vacío en el centro
-      end: 'today prev,next dayGridMonth,timeGridWeek' // Botones a la derecha
+      start: 'title',           
+      center: '',               
+      end: 'today prev,next dayGridMonth'
     }
   };
 
@@ -50,13 +51,10 @@ export class CalendarComponent implements OnInit {
         this.events = response.body.map(event => ({
           id: event.id.toString(),
           title: event.title, 
-          start: new Date(event.start).toISOString(), 
-          end: event.end ? new Date(event.end).toISOString() : undefined, 
+          start: this.calendarService.formatDate(new Date(event.start)),
+          end: event.end ? this.calendarService.formatDate(new Date(event.end)) : undefined,  
           description: event.description, 
-          color: event.color || undefined, 
-          extendedProps: {
-            category: event.category || undefined 
-          }
+          color: event.color || undefined
         }));
         
       },
@@ -67,25 +65,35 @@ export class CalendarComponent implements OnInit {
   }
 
   handleDateClick(arg: DateClickArg): void {
-    //alert('date click! ' + arg.dateStr);
-    const selectedDate = arg.dateStr; 
-    /*
-    // Crear el objeto EventCalendar
-    const eventData: EventCalendar = {
-      id: 0, // Aquí podrías asignar un ID si ya lo tienes
-      title: 'Nuevo Evento', // Aquí coloca el título o asigna otro valor si lo tienes
-      description: 'Descripción del evento',
-      start: selectedDate,
-      end: '', // Aquí puedes dejar vacío o usar una fecha de finalización
-      category: null,
-      color: '#FF5733' // Un color predeterminado
-    };*/
 
-    //console.log(selectedDate)
+    const selectedDate = arg.dateStr;
 
     if (this.eventModalComponent) {
       this.eventModalComponent.openModal(null, selectedDate);
     }
+  }
+
+  handleEventClick(arg: EventClickArg): void{
+    // Construimos el objeto EventCalendar con los datos del evento
+    const clickedEvent = arg.event;
+
+    const eventData: EventCalendar = {
+      id: parseInt(clickedEvent.id, 10),
+      title: clickedEvent.title,
+      description: clickedEvent.extendedProps['description'] || '',
+      start: clickedEvent.start?.toISOString() || '',
+      end: clickedEvent.end?.toISOString() || '',
+      color: clickedEvent.backgroundColor || '#FF5733'
+    };
+
+    // Abre el modal en modo de edición con los datos del evento
+    if (this.eventModalComponent) {
+      this.eventModalComponent.openModal(eventData, null);
+    }
+  }
+
+  onEventUpdated(eCalendar: EventCalendar) {
+    this.loadEvents(); 
   }
 
 

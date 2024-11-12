@@ -4,7 +4,6 @@ export interface EventCalendar {
     description: string,
     start: string,
     end: string,
-    category: string | null,
     color: string | null
 }
 

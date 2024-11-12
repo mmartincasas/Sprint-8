@@ -28,11 +28,11 @@ function updateUser (userId, user) {
     return Promise.reject({ status: 400, message: 'At least one field is required to update.' })
   }
 
-  return db.updateUser(TABLE, user, userId)
+  return db.update(TABLE, user, userId)
 }
 
 function removeUser (id) {
-  return db.removeUser(TABLE, id)
+  return db.remove(TABLE, id)
 }
 
 module.exports = {

@@ -34,7 +34,7 @@
 
                           <div class="form-group my-2">
                             <label for="start">Start Date:</label>
-                            <input id="start" formControlName="start" class="form-control" type="date"/>
+                            <input id="start" formControlName="start" class="form-control" type="datetime-local"/>
                             @if(formCalendar.get('start')?.invalid && (formCalendar.get('start')?.touched || formCalendar.get('start')?.dirty)){
 
                                 <div class="row text-end m-1">
@@ -45,7 +45,7 @@
 
                           <div class="form-group my-2">
                             <label for="end">End Date:</label>
-                            <input id="end" formControlName="end" class="form-control" type="date"/>
+                            <input id="end" formControlName="end" class="form-control" type="datetime-local"/>
                             @if(formCalendar.get('end')?.invalid && (formCalendar.get('end')?.touched || formCalendar.get('end')?.dirty)){
 
                                 <div class="row text-end m-1">
@@ -56,7 +56,7 @@
 
                           <div class="form-group my-2">
                             <label for="description">Description:</label>
-                            <textarea class="form-control" id="description"></textarea>
+                            <textarea id="description" formControlName="description" class="form-control" ></textarea>
                             @if(formCalendar.get('description')?.invalid && (formCalendar.get('description')?.touched || formCalendar.get('description')?.dirty)){
 
                                 <div class="row text-end m-1">
@@ -65,8 +65,15 @@
                             }
                           </div>
                     
-                          <button type="submit" class="btn btn-primary my-3" (click)="saveEvent()">Save</button>
-                          <button class="btn btn-secondary my-3 mx-2" (click)="closeModal()">Cancel</button>
+                          <div class="d-flex justify-content-between">
+                            <div>
+                              <button type="submit" class="btn btn-primary my-3">Save</button>
+                              <button class="btn btn-secondary my-3 mx-2" (click)="closeModal()">Cancel</button>
+                            </div>
+                            @if(isUpdateMode){
+                                <button class="btn btn-danger my-3" (click)="removeEvent()">Delete</button>
+                            }
+                          </div>
                     </form>
                 </div>
 

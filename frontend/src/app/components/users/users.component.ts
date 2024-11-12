@@ -53,7 +53,7 @@ export class UsersComponent implements OnInit {
   }
 
   onUserUpdated(user: User) {
-    this.loadUsers(); // Vuelve a cargar los usuarios
+    this.loadUsers();
   }
 
 
