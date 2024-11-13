@@ -57,9 +57,10 @@ cd backend
 npm install
 ```
 
-**✔️ Step 3:** Download the MySQL database (SQL file) named **Inprocode** and provided in the repository. Import it into your MySQL instance. If using XAMPP, make sure the MySQL server is running:
+**✔️ Step 3:** Download the MySQL database (SQL file) named **inprocode** from this repository, then import it into your MySQL instance. If using XAMPP, make sure the MySQL server is running:
 - Start *Apache* and *MySQL* from the XAMPP control panel.
-- Import the provided SQL file into your MySQL database via PhpMyAdmin or the MySQL command line.
+- Open PhpMyAdmin (or the MySQL command line) and create a new database named **inprocode**.
+- Import the SQL file into your inprocode database.
 
 **✔️ Step 4:** Open new terminal, navigate to the frontend directory and install the npm dependencies:
 
